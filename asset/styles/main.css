@@ -1,0 +1,82 @@
+.section-header {
+  background: rgb(242, 247, 255);
+  padding: 48px 80px;
+}
+.section-header .hero {
+  padding: 32px;
+}
+.section-header .hero .hero-title {
+  color: #3868B0;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.section-header .hero .hero-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+}
+.section-header .hero .hero-image img {
+  width: 500px;
+}
+.section-header .form-customer {
+  padding: 24px;
+  background-color: white;
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 8px;
+  box-shadow: 4.9px 5.8px 16.2px rgba(0, 0, 0, 0.008), 16.5px 19.4px 54.3px rgba(0, 0, 0, 0.012), 74px 87px 243px rgba(0, 0, 0, 0.02);
+}
+.section-header .form-customer .header {
+  margin-bottom: 24px;
+}
+.section-header .form-customer .header .title {
+  font-weight: 600;
+}
+.section-header .form-customer .header .subtitle {
+  font-size: 14px;
+  font-weight: 300;
+}
+.section-header .form-customer .form-group {
+  margin-bottom: 16px;
+}
+.section-header .form-customer .form-group label {
+  font-size: 13px;
+}
+.section-header .form-customer .form-group .text-helper {
+  font-size: 12px;
+  margin-top: 5px;
+  color: red;
+}
+
+.section-simulation {
+  padding: 48px 80px;
+}
+.section-simulation .section-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #3868B0;
+}
+.section-simulation .section-subtitle {
+  font-size: 14px;
+  font-weight: 300;
+}
+.section-simulation .form-simulation .form-group {
+  margin-bottom: 16px;
+}
+.section-simulation .form-simulation .form-group label {
+  font-size: 13px;
+}
+.section-simulation .card-result {
+  border-top: 3px solid #3868B0;
+  align-items: center;
+  text-align: center;
+  padding-top: 32px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.section-simulation .card-result .title {
+  font-size: 16px;
+}
+.section-simulation .card-result .subtitle {
+  font-size: 28px;
+  font-weight: 700;
+}/*# sourceMappingURL=main.css.map */
