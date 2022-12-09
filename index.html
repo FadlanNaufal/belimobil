@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="asset/styles/main.css">
-    <title>Hello, world!</title>
+    <title>Beli Mobil</title>
 </head>
 
 <body>
@@ -121,7 +121,6 @@
                         <div class="form-group">
                             <label for="">Jenis Kendaraan</label>
                             <select name="" id="jenis_kendaraan" class="form-control" onchange="changeCarType()">
-                                <option value="" selected disabled>Pilih Jenis Kendaraan</option>
                                 <option value="50000000">Mobil Keluarga - Rp 50.000.0000</option>                                
                                 <option value="100000000">Mobil Sedan - Rp 100.000.0000</option>
                                 <option value="150000000">Mobil Truck - Rp 150.000.0000</option>
@@ -132,14 +131,14 @@
                             <label for="">Jumlah Tenor</label>
                             <select name="" id="jumlah_tenor" class="form-control" onchange="changeTenor()">
                                 <option value="10" selected>10 Bulan</option>
-                                <option value="15">15 Bulan</option>
+                                <option value="20">20 Bulan</option>
                                 <option value="25">25 Bulan</option>
                                 <option value="40">40 Bulan</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="">Diskon yang Didapat</label>
-                            <input type="text" name="" id="diskon" class="form-control" disabled value="0">
+                            <input type="text" name="" id="diskon" class="form-control" disabled value=0>
                         </div>
                     </form>
                 </div>
@@ -157,6 +156,8 @@
         </div>
     </section>
 
+    
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -171,6 +172,7 @@
     -->
 </body>
 <script type="text/javascript">
+
     document.getElementById("credit_title").style.display = 'none'
     document.getElementById("credit_subtitle").style.display = 'none'
     document.getElementById("input_tenor").style.display = 'none'
@@ -198,6 +200,7 @@
     function changePayType(){
         var pembayaran = document.getElementById("pembayaran").value
         if (pembayaran == "cash"){
+            
             document.getElementById("cash_title").style.display = 'block'
             document.getElementById("cash_subtitle").style.display = 'block'
 
@@ -207,6 +210,7 @@
             document.getElementById("input_tenor").style.display = 'none'
 
         } else if (pembayaran == "credit"){
+            
             document.getElementById("credit_title").style.display = 'block'
             document.getElementById("credit_subtitle").style.display = 'block'
             document.getElementById("input_tenor").style.display = 'block'
@@ -216,37 +220,62 @@
         }
     }
 
-    function changeCarType(){
-        var pembayaran = document.getElementById("pembayaran").value
-        var jenis_kendaraan = document.getElementById("jenis_kendaraan").value
+    function changeCarType(){  
+        if (pembayaran.value == "cash"){
+            
+            var car_price = document.getElementById("jenis_kendaraan").value
+            if (car_price == "50000000"){
+                document.getElementById("diskon").value = 100000
+            }else if(car_price == "100000000"){
+                document.getElementById("diskon").value = 150000
+            }else if(car_price == "150000000"){
+                document.getElementById("diskon").value = 200000
+            }else if(car_price == "200000000"){
+                document.getElementById("diskon").value = 250000
+            }
 
-        if (pembayaran.value == "cash") {
-            var diskon = document.getElementById("diskon")
-            diskon.value = 1000000
+            var diskon_value = document.getElementById("diskon").value
+            var total_cash = Number(car_price) - Number(diskon_value)
+ 
+            document.getElementById("cash_subtitle").innerHTML = "Rp " + numberWithCommas(total_cash)
             
-            var total = Number(jenis_kendaraan) - Number(diskon.value);
-            document.getElementById("cash_subtitle").innerHTML = "Rp " + numberWithCommas(total)
-            
+        }else if (pembayaran.value == "credit"){
+            var car_price = document.getElementById("jenis_kendaraan").value
+            var jumlah_tenor = document.getElementById("jumlah_tenor").value
+            if (jumlah_tenor == "10"){
+                document.getElementById("diskon").value = 100000
+            }else if(jumlah_tenor == "20"){
+                document.getElementById("diskon").value = 150000
+            }else if(jumlah_tenor == "25"){
+                document.getElementById("diskon").value = 300000
+            }else if(jumlah_tenor == "40"){
+                document.getElementById("diskon").value = 500000
+            }
+
+            var diskon_value = document.getElementById("diskon").value
+            var total_cash = (Number(car_price) - Number(diskon_value)) / Number(jumlah_tenor)
+ 
+            document.getElementById("credit_subtitle").innerHTML = "Rp " + numberWithCommas(total_cash)
         }
-        
     }
 
     function changeTenor(){
-        var tenor = document.getElementById("jumlah_tenor").value
-        var jenis_kendaraan = document.getElementById("jenis_kendaraan").value
+        var car_price = document.getElementById("jenis_kendaraan").value
+            var jumlah_tenor = document.getElementById("jumlah_tenor").value
+            if (jumlah_tenor == "10"){
+                document.getElementById("diskon").value = 100000
+            }else if(jumlah_tenor == "20"){
+                document.getElementById("diskon").value = 150000
+            }else if(jumlah_tenor == "25"){
+                document.getElementById("diskon").value = 300000
+            }else if(jumlah_tenor == "40"){
+                document.getElementById("diskon").value = 500000
+            }
 
-        alert (tenor)
-        alert (jenis_kendaraan)
-        alert (pembayaran.value)
-
-        if (pembayaran.value == "credit") {
-            var diskon = document.getElementById("diskon")
-            diskon.value = 1000000
-            
-            var total = Number(jenis_kendaraan) - Number(diskon.value);
-            document.getElementById("credit_subtitle").innerHTML = "Rp " + numberWithCommas(total)
-            
-        }
+            var diskon_value = document.getElementById("diskon").value
+            var total_cash = (Number(car_price) - Number(diskon_value)) / Number(jumlah_tenor)
+ 
+            document.getElementById("credit_subtitle").innerHTML = "Rp " + numberWithCommas(total_cash)
     }
    
 </script>
